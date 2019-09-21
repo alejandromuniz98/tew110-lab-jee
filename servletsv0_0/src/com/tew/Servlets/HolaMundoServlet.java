@@ -40,6 +40,11 @@ public class HolaMundoServlet extends HttpServlet {
 			 listado = new Vector<String>();
 		 }
 		
+		 Integer contador= (Integer) getServletContext().getAttribute("contador");
+		 if ( contador == null ){
+		  contador = new Integer(0);
+		 }
+		 getServletContext().setAttribute("contador",new Integer(contador.intValue()+1));
 
 		PrintWriter out = response.getWriter();
 		out.println("<HTML>");
@@ -58,6 +63,8 @@ public class HolaMundoServlet extends HttpServlet {
 		for ( int i = 0 ; i < listado.size() ; i++ ){
 			 out.println("<br>"+(String)listado.elementAt(i));
 		 }
+		out.println("<br>");
+		out.println("<br><br>" + contador +" visitas");
 		out.println("<br>");
 		out.println("<a href=\"index.html\">volver</a>");
 
