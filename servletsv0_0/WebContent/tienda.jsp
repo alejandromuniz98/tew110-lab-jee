@@ -74,9 +74,18 @@ request.getSession().setAttribute("carrito",carrito);
  
  <%
  }
- 
  %>
+ <br>
  </center>
+<%
+ Integer contador = (Integer)application.getAttribute("contador");
+ if ( contador == null ){
+ 	contador = new Integer(0);
+ }
+ application.setAttribute("contador",new Integer(contador.intValue()+1));
+%>
+<center><%=contador%> visitas</center>
+
  
  </body>
 <html>
