@@ -16,6 +16,15 @@ if (request.getParameter("NombreUsuario") != null) {
 }
 %>
 <h1>Bienvenido a mi primera página web!</h1>
+
+<%@ page language="java" import="tew.beans.Counter"%> 
+<jsp:useBean id="contador" class="tew.beans.Counter"
+ scope="application"/>
+<center>
+<jsp:getProperty property="incrementedValue" name="contador"/> visitas
+</center>
+
+
 </body>
 
 </html>
