@@ -56,7 +56,7 @@ public class CarritoCompraServlet extends HttpServlet {
 		out.println("</SELECT>");
 		
 		out.println("<input type=\"submit\" value=\"submit\">");
-		
+		out.println("</FORM>");
 		
 		HashMap<String,Integer> carrito = (HashMap<String,Integer>)request.getSession().getAttribute("carrito");
 		if ( carrito == null ) {
@@ -76,7 +76,10 @@ public class CarritoCompraServlet extends HttpServlet {
 		 	 	carrito.put(producto, cantidad);
 		 	 	
 		}
-		out.print(carrito.get(producto));
+		request.getSession().setAttribute("carrito",carrito);
+		
+		
+		
 		
 		out.println("<br><br>");
 		out.println("<h1>Estado actual del carrito <h1/>");
@@ -88,13 +91,13 @@ public class CarritoCompraServlet extends HttpServlet {
 			String elemento =(String) itr.next();
 			Integer cantidad=(Integer) carrito.get(elemento);
 			if(cantidad!=0) {
-				out.println("Producto: "+ elemento +";Cantidad: " +cantidad);
+				out.println("<h4>Producto: "+ elemento +";Cantidad: " +cantidad + "<h4/>");
 			}
 		}
 
 		
 		
-		out.println("</FORM></BODY></HTML>");
+		out.println("</BODY></HTML>");
 		
 	}
 
