@@ -3,6 +3,8 @@ package com.tew.infrastructure;
 import impl.tew.business.SimpleServicesFactory;
 import impl.tew.persistence.SimplePersistenceFactory;
 
+import javax.faces.bean.*;
+
 import com.tew.persistence.PersistenceFactory;
 import com.tew.business.AlumnosService;
 import com.tew.business.ServicesFactory;
@@ -26,88 +28,12 @@ import com.tew.model.Alumno;
  * @author Enrique
  *
  */
+		
 public class Factories {
 	
 
 	public static ServicesFactory services = new SimpleServicesFactory();
 	public static PersistenceFactory persistence = new SimplePersistenceFactory();
 
-	Alumno alumno;
-	Alumno[] alumnos;
-	
-	public String listado() {
-		AlumnosService service;
-		try {
-		// Acceso a la implementacion de la capa de negocio
-		// a través de la factoría
-		service = Factories.services.createAlumnosService();
-		// Asi le damos información a toArray para poder hacer el casting a Alumno[]
-		alumnos = (Alumno [])service.getAlumnos().toArray(new Alumno[0]);
-		return "exito";
-		
-		} catch (Exception e) {
-		e.printStackTrace();
-		return "error";
-		 	}
-		}
-	
-	public String edit() {
-		AlumnosService service;
-		try {
-		// Acceso a la implementacion de la capa de negocio
-		// a través de la factoría
-		service = Factories.services.createAlumnosService();
-		//Recargamos el alumno en la tabla de la base de datos por si hubiera cambios.
-		alumno = service.findById(alumno.getId());
-		return "exito";
-		
-		} catch (Exception e) {
-		e.printStackTrace();
-		return "error";
-			}
-		}
-	
-	
-		public String salva() {
-			AlumnosService service;
-			try {
-				// Acceso a la implementacion de la capa de negocio
-				// a través de la factoría
-				service = Factories.services.createAlumnosService();
-						//Salvamos o actualizamos el alumno segun sea una operacion de alta o de edición
-				if (alumno.getId() == null) {
-					service.saveAlumno(alumno);
-				}
-				else {
-					service.updateAlumno(alumno);
-					
-				}
-				//Actualizamos el javabean de alumnos inyectado en la tabla
-				alumnos = (Alumno [])service.getAlumnos().toArray(new Alumno[0]);
-				return "exito";
-			} catch (Exception e) {
-				e.printStackTrace();
-				return "error";
-			}
-		 }
-
-		
-		public String baja() {
-			AlumnosService service;
-			try {
-				// Acceso a la implementacion de la capa de negocio
-				// a través de la factoría
-				service = Factories.services.createAlumnosService();
-
-				service.deleteAlumno(alumno.getId());
-				
-				//Actualizamos el javabean de alumnos inyectado en la tabla
-				alumnos = (Alumno [])service.getAlumnos().toArray(new Alumno[0]);
-				return "exito";
-			} catch (Exception e) {
-				e.printStackTrace();
-				return "error";
-			}
-		 }
 		
 }
