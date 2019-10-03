@@ -10,7 +10,7 @@ public class BeanSettings implements Serializable{
 	private static final long serialVersionUID = 2L;
 	private static final Locale ENGLISH = new Locale("en");
 	private static final Locale SPANISH = new Locale("es");
-	private Locale locale = new Locale("en");
+	private Locale locale = new Locale("es");
 	
 	public Locale getLocale() { /*Habria que cambiar algo de código para coger locale del navegador la primera vez que se accede a getLocale(), de momento el idioma departida “es”*/
 		return(locale);
