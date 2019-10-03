@@ -11,6 +11,6 @@
   <links id="pf15057527326417" target="pf15057527326418" source="pf15057527326416" outcome="error"/>
   <links id="pf15700937308933" target="pf15057527326414" source="pf15057527326415" outcome="exito" fromaction="#{controller.salva}"/>
   <links id="pf15700937308934" target="pf15057527326414" source="pf15700937308935" outcome="exito" fromaction="#{controller.salva}"/>
-  <links id="pf15700937308931" target="pf15057527326414" source="pf15057527326414" outcome="exito" fromaction="#{controller.baja}"/>
+  <links id="pf15700937308931" target="pf15057527326414" source="pf15057527326414" outcome="exito" fromaction="#{controller.baja(valumno}"/>
   <links id="pf15700937308932" target="pf15700937308935" source="pf15057527326414" outcome="editar"/>
 </pageflow:Pageflow>

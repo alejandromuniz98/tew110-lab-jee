@@ -23,7 +23,7 @@
  </h:commandLink>
  </f:facet>
 </p:menubar>
-<p:dataTable var="alumno" 
+<p:dataTable var="valumno" 
              value="#{controller.alumnos}"
              border="1">
   <p:column><f:facet name="header">#{msgs.nombre}</f:facet>#{alumno.nombre}</p:column>
@@ -31,8 +31,8 @@
   <p:column><f:facet name="header">#{msgs.userid}</f:facet>#{alumno.iduser}</p:column>
   <p:column><f:facet name="header">#{msgs.correo}</f:facet>#{alumno.email}</p:column>
   <p:column><f:facet name="header">#{msgs.enlaceBaja}</f:facet>
-     <h:commandLink action="#{controller.baja}" type="submit" value="#{msgs.tablaBaja}" immediate="true">
-         <f:setPropertyActionListener target="#{controller.alumno}" value="#{alumno}"/>
+     <h:commandLink action="#{controller.baja(valumno)}" type="submit" value="#{msgs.tablaBaja}" immediate="true">
+         <f:actionListener target="#{alumno.setAlumno(valumno)}" value="#{alumno}"/>
      </h:commandLink>
   </p:column>
   <p:column><f:facet name="header">#{msgs.tituloOperacionEdicion}</f:facet>
