@@ -126,7 +126,7 @@ private Alumno[] alumnos = null;
 	  	}
 	  	@PreDestroy
 	  	public void end() {
-	  		System.out.println("BeanAlumnos - PreDestroy");
+	  		System.out.println("BeanAlumnos -PreDestroy");
 	  	}
 
 }
