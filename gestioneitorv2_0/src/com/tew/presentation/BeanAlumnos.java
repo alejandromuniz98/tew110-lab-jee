@@ -12,6 +12,7 @@ import com.tew.business.AlumnosService;
 import com.tew.infrastructure.Factories;
 import com.tew.model.Alumno;
 
+
 @ManagedBean
 @SessionScoped
 public class BeanAlumnos implements Serializable{
@@ -21,6 +22,7 @@ public class BeanAlumnos implements Serializable{
   // Es necesario inicializarlo para que al entrar desde el formulario de 
   // AltaForm.xhtml se puedan dejar los valores en un objeto existente.
  
+ @ManagedProperty(value="#{alumno}")  
 private Alumno alumno = new Alumno();
 public BeanAlumno getAlumno() { return (BeanAlumno) alumno; }
 public void setAlumno(BeanAlumno alumno) {this.alumno = alumno;}
@@ -119,17 +121,8 @@ private Alumno[] alumnos = null;
 	  @PostConstruct
 	  public void init() {
 		  System.out.println("BeanAlumnos - PostConstruct");
-		  //Buscamos el alumno en la sesión. Esto es un patrón factoría claramente.
-		  alumno = (BeanAlumno)
-				  FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(new
-						  String("alumno"));
-		  //si no existe lo creamos e inicializamos
-		  if (alumno == null) {
-			  System.out.println("BeanAlumnos - No existia");
-			  alumno = new BeanAlumno();
-			  FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put( "alumno",
-					  alumno);
-		  }
+		  FacesContext f= FacesContext.getCurrentInstance();
+		  alumno= new SimpleAlumnoFactory().createAlumno(f);
 	  	}
 	  	@PreDestroy
 	  	public void end() {
