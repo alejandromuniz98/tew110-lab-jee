@@ -41,8 +41,11 @@ actionListener="#{alumno.setAlumno(valumno)}" immediate="true">
  </p:column>
  </p:dataTable>
  </h:form>
- </ui:define>
- <ui:define name="pie">
+  </ui:define>
+<ui:define name="pie">
+ <h:form id="form-pie">
+ <ui:include src="/snippets/pie-casa.xhtml" />
+ </h:form>
  </ui:define>
 </ui:composition>
 
