@@ -12,7 +12,7 @@ public interface AlumnosServicesRs extends AlumnosService {
 	
 	@GET 
 	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-	public List<Alumno> getAlumnos();
+	public List<Alumno> getAlumnos()throws Exception;
 	
 	@GET
 	@Path("{id}")
