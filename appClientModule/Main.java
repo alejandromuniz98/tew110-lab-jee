@@ -8,7 +8,6 @@ public class Main {
 		Client client = ClientBuilder.newClient(); 
 		WebTarget target = client.target("http://localhost:8080/gestioneitorv4_0/pisos.json");
 		String result = target.request().get().readEntity(String.class); 
-		System.out.println(result);
 		
 		/*El código para acceder al servicio y luego tratar los datos.
 		Los objetos de las clases JSONObjects (mapas) y JSONArray (arrays)
