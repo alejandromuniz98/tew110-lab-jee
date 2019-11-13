@@ -6,7 +6,7 @@ import org.json.simple.*;
 public class Main {
 	public static void main(String[] args) {
 		Client client = ClientBuilder.newClient(); 
-		WebTarget target = client.target("http://localhost:8080/gestioneitorv4_0/pisos.json");
+		WebTarget target = client.target("http://datos.gijon.es/doc/transporte/busgijontr.json");
 		String result = target.request().get().readEntity(String.class); 
 		
 		/*El código para acceder al servicio y luego tratar los datos.
