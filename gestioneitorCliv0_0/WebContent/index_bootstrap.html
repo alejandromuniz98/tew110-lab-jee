@@ -8,11 +8,26 @@ Universidad de Oviedo
 -->
 <!DOCTYPE html>
 <html>
-<head>
+<div class="page-header" >
 <meta charset="ISO-8859-1">
 <title>Tecnologías Web</title>
-</head>
-  <body>
+
+<!--Para la presentación adecuada en los dispositivos donde se visualice-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+width=device-width establece el ancho de la página para que se ajuste al dispositivo.
+initial-scale=1 establece el nivel de zoom inicial -->
+<!--Uso de hojas de estilo de bootstrap local-->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script
+src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script
+src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</div>
+  <body style="background-color:#E3CAA1">
     <!-- 
 	***************************************************
 	* CABECERA DE LA PAGINA ***************************
@@ -25,7 +40,7 @@ Universidad de Oviedo
 	* MENU ********************************************
 	***************************************************
 	-->
-	<div>
+	 <div class="container">
 		<ul>
 			<li>Alumnos
 				<ul>
@@ -51,20 +66,22 @@ Universidad de Oviedo
 			<li><a href="#">Calificaciones</a></li>
 			<li>Sesión
 				<ul>
-					<li><a href="#login.html" target="formulario" >Login</a></li>
+					<li><a href="# login_bootstrap.html" target="formulario" >Login</a></li>
 					<li><a href="#logout" >Logout</a></li>
 				</ul>
 			</li>
 		</ul>
 	</div>
 
+
+	<div class="row">
 	<!-- 
 	***************************************************
 	* SECCION PRINCIPAL DE FORMULARIOS         ********
 	***************************************************
 
 	-->
-  	<div>
+  	<div class="col-sm-9">
 		<iframe name="formulario" src="login.html" width="750px" height="500px"> </iframe>
 	</div>
 	
@@ -73,7 +90,7 @@ Universidad de Oviedo
 	* ELEMENTO LATERAL INFORMATIVO ********************
 	***************************************************
 	-->
-	<div>
+	 <div class="col-sm-3 bg-info">
 		
 		<h2>Proyecto GestioneitorCli v0.0</h2>
 		
@@ -83,6 +100,7 @@ Universidad de Oviedo
 			<li>Secciones básicas para estructurar el código de GestioneitorCli en HTML4. </li>
 		</ol>
 	</div>
+	</div>
 
 
 	<!-- 
@@ -90,11 +108,11 @@ Universidad de Oviedo
 	* ELEMENTO PIE DE NAVEGACION** ********************
 	***************************************************
 	-->
-	<div>
-			<ul>
+	<div class="panel panel-default">
+			<div class="panel-footer">
 				<li><a href="#">Casa</a></li>
 				<li><a href="#">Contacto</a></li>
-			</ul>
+			</div>
 	</div>	 
 </body>
 </html>
